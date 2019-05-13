@@ -1,0 +1,38 @@
+{% extends 'includes/base.html'%}
+
+{% block title %}
+<title>Reviews</title>
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="container">
+    <a  class="btn btn-primary mt-5 text-white" href="{% url 'login'%}">Login</a>
+    <div class="row">
+
+        <div class="jumbotron">
+            <form method="post">
+
+                {% csrf_token %}
+                 <div class="form-group">
+                {{form.as_p}}
+                 </div>
+                <input type="submit" class="btn btn-success" value="Save">
+            </form>
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+</div>
+{% endblock %}

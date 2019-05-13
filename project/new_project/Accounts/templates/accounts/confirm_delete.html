@@ -1,0 +1,24 @@
+{% extends 'includes/base.html'%}
+
+{% block title %}
+<title>Reviews</title>
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <form method="post">
+            {% csrf_token %}
+            <h2>Are you want Sure Delete {{users.username}} ?</h2>
+            <button type="submit" class="btn btn-danger">Confirm</button>
+            <a href="{% url 'all-users'%}" class="btn btn-success">Back</a>
+        </form>
+        </div>
+</div>
+
+
+
+
+
+{% endblock %}

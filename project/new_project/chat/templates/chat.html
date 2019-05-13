@@ -1,0 +1,141 @@
+<html>
+<head>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
+<body>
+<style>
+.chat{
+    position: relative;
+    width: 600px;
+
+    height: 400px;
+    background: #ececec;
+    border: 1px solid #ececec;
+    margin: auto;
+    margin-top:5%
+
+
+
+
+
+}
+
+.chat_box{
+
+position:absolute;
+bottom:0px;
+left:0px;
+
+}
+
+.chat_box textarea{
+    width: 100%;
+    float: left;
+    border: none;
+    padding: 10px;
+    height: 50%;
+
+}
+
+
+.message_area{
+     overflow-y: scroll;
+      background:blue;
+      height:250px;
+
+}
+
+
+.errorlist{
+
+display:none;
+}
+
+
+.text-chat{
+    width: 100%;
+    float: left;
+
+    padding: 10px 0px;
+}
+.send_btn{
+display:none;
+}
+
+.user{
+    padding: 6px;
+    border-radius: 16px;
+    background: #c9223c;
+    color: #fff;
+    width: 60%;
+    float: right;
+    padding-left: 2%;
+    margin: 5px;
+}
+
+.admin{
+	padding: 6px;
+    border-radius: 16px;
+    background: #22bec3;
+    color: #fff;
+    width: 60%;
+    float: left;
+    padding-left: 2%;
+}
+
+#id_message {
+    background: #a5c3a5;
+    height: 40px;
+}
+
+.btn{
+    background: green;
+    width: 15%;
+
+    margin: 10px 0px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+</style>
+<div class="chat">
+    <div class="chat_box">
+        <div class="message_area">
+            {% for ch in chat %}
+
+            {%if myuser in ch.user_name %}
+            <div class="user">{{ch.message}}<br>{{ch.date}}</div>
+            {% else %}
+            <!--<div class="admin">Hii!<br>{{ch.date}}</div>-->
+
+            <div class="admin">{{ch.message}}<br>{{ch.date}}</div>
+            {%endif%}
+            {% endfor %}
+        </div>
+
+        <div class="text-chat">
+            <form method="post">
+                {% csrf_token %}
+                {{form.as_p}}
+                <br>
+                <button type="submit" class="btn"><h1><i class="fas fa-arrow-circle-right"></i></h1></button>
+            </form>
+
+        </div>
+
+    </div>
+    {{myuser}}
+    {%if myuser in 'rohit'%}
+    hello
+    {% else %}
+    Not use Now
+    {%endif%}
+
+</div>
+</body>
+</html>

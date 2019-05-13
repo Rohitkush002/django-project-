@@ -1,0 +1,36 @@
+
+
+{% extends 'includes/base.html'%}
+
+{% block title %}
+<title>Login</title>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="box panel panel-default">
+
+
+      <h1 class="panel-heading">Login</h1>
+      <div class="panel-body">
+
+
+        <form action="" method="post">
+             {% csrf_token %}
+            <div class="form-group">
+                {{form}}
+            </div>
+           <div class="sub-btn">
+               <input type="submit"  value="Login" class="btn btn-success">
+           </div>
+
+
+        </form>
+          <a href="">Forget Password?</a>
+           <p> I don't have any Account  <a href="{% url 'new-user'%}"> Create an Account</a></p>
+      </div>
+    </div>
+
+
+{% endblock%}
